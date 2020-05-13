@@ -11,4 +11,29 @@ const words = ['application', 'programming', 'interface', 'wizard'];
 
 let selecledWord = words[Math.floor(Math.random() * words.length)];
 
-console.log(selecledWord);
+const correctLetters = [];
+const wrongLetters = [];
+
+// Show hidden word
+function displayWord() {
+  wordEl.innerHTML = `
+  ${selecledWord
+    .split('')
+    .map(
+      (letter) => `
+        <span class="letter">
+          ${correctLetters.includes(letter) ? letter : ''}
+        </span>
+      `
+    )
+    .join('')}
+  `;
+
+  const innerWord = wordEl.innerText.replace(/\n/g, '');
+
+  if (innerWord === selectedWord) {
+    finalMessage.innerText = `Congratulations! You won! 😀`;
+  }
+}
+
+displayWord();
