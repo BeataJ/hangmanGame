@@ -11,7 +11,7 @@ const words = ['application', 'programming', 'interface', 'wizard'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
-const correctLetters = ['w', 'i', 'z', 'a', 'r', 'd'];
+const correctLetters = [];
 const wrongLetters = [];
 
 // Show hidden word
@@ -36,5 +36,13 @@ function displayWord() {
     popup.style.display = 'flex';
   }
 }
+
+// Keydown letter press
+window.addEventListener('keydown', (e) => {
+  // console.log(e.keyCode);
+  if (e.keyCode >= 65 && e.keyCode <= 90) {
+    console.log(123);
+  }
+});
 
 displayWord();
