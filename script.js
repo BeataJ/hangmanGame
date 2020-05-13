@@ -9,32 +9,32 @@ const figureParts = document.querySelectorAll('.figure-part');
 
 const words = ['application', 'programming', 'interface', 'wizard'];
 
-let selecledWord = words[Math.floor(Math.random() * words.length)];
+let selectedWord = words[Math.floor(Math.random() * words.length)];
 
-const correctLetters = [];
+const correctLetters = ['w', 'i', 'z', 'a', 'r', 'd'];
 const wrongLetters = [];
 
 // Show hidden word
 function displayWord() {
   wordEl.innerHTML = `
-  ${selecledWord
-    .split('')
-    .map(
-      (letter) => `
-        <span class="letter">
-          ${correctLetters.includes(letter) ? letter : ''}
-        </span>
-      `
-    )
-    .join('')}
+    ${selectedWord
+      .split('')
+      .map(
+        (letter) => `
+          <span class="letter">
+            ${correctLetters.includes(letter) ? letter : ''}
+          </span>
+        `
+      )
+      .join('')}
   `;
 
   const innerWord = wordEl.innerText.replace(/\n/g, '');
 
   if (innerWord === selectedWord) {
-    finalMessage.innerText = `Congratulations! You won! 😀`;
+    finalMessage.innerText = 'Congratulations! You won! 😃';
+    popup.style.display = 'flex';
   }
-  popup.style.display = 'flex';
 }
 
 displayWord();
